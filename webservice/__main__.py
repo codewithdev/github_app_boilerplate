@@ -76,6 +76,16 @@ async def pr_opened(event, gh, *args, **kwargs):
             oauth_token=installation_access_token["token"],
         )
         
+
+        
+# add label
+    response = await gh.patch(
+        issue_url,
+        data={"labels": ["needs review"]},
+        oauth_token=installation_access_token["token"],
+    )
+        
+        
         
 
 if __name__ == "__main__":  # pragma: no cover
